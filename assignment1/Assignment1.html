@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Budget Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: grid;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, button {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Personal Budget Tracker</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#add-expense">Add Expense</a>
+            <a href="#view-budget">View Budget</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Welcome to Your Personal Budget Tracker</h2>
+        <p>This tool helps you manage your monthly income and expenses. Add your transactions below to keep track of your budget effectively.</p>
+    </section>
+
+    <section id="add-expense">
+        <h2>Add Income/Expense</h2>
+        <form>
+            <label for="income">Income:</label>
+            <input type="number" id="income" name="income" placeholder="Enter income amount">
+
+            <label for="expense">Expense:</label>
+            <input type="number" id="expense" name="expense" placeholder="Enter expense amount">
+
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+                <option value="Food">Food</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Others">Others</option>
+            </select>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+
+            <button type="submit">Add Transaction</button>
+        </form>
+    </section>
+
+    <section id="view-budget">
+        <h2>Budget Summary</h2>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Type</th>
+            </tr>
+            <tr>
+                <td>Food</td>
+                <td>500</td>
+                <td>2025-02-01</td>
+                <td>Expense</td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td>2000</td>
+                <td>2025-02-01</td>
+                <td>Income</td>
+            </tr>
+        </table>
+    </section>
+
+    <footer>
+        <p>Personal Budget Tracker v1.0 | <a href="#" style="color: lightgray;">Privacy Policy</a> | <a href="#" style="color: lightgray;">Terms of Use</a></p>
+    </footer>
+</body>
+
+</html>
