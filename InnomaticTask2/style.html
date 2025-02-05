@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <!-- Linking the CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section with Background Image -->
+    <section id="home">
+        <h1>Welcome to Our Coffee Shop!</h1>
+        <p>Enjoy the best coffee in town!</p>
+        <img src="coffe1.jpg" alt="Coffee cup" class="home-img">
+    </section>
+
+    <!-- Menu Section with Grid Layout -->
+    <section id="menu">
+        <h2>Menu</h2>
+        <div class="menu-grid">
+            <!-- Coffee 1 -->
+            <div class="coffee-item">
+                <img src="cold coffe.jpg" alt="Cold Coffee">
+                <h3>Cold Coffee</h3>
+                <p>RS-150</p>
+            </div>
+
+            <!-- Coffee 2 -->
+            <div class="coffee-item">
+                <img src="Americano.jpg" alt="Americano">
+                <h3>Americano</h3>
+                <p>Rs-200</p>
+            </div>
+
+            <!-- Coffee 3 -->
+            <div class="coffee-item">
+                <img src="latte.jpg" alt="Latte">
+                <h3>Latte</h3>
+                <p>Rs-250</p>
+            </div>
+
+            <!-- Coffee 4 -->
+            <div class="coffee-item">
+                <img src="cappuccino.jpg" alt="Cappuccino">
+                <h3>Cappuccino</h3>
+                <p>Rs-150</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us">
+        <h2>About Us</h2>
+        <p>We are passionate about coffee and providing the best coffee experience for our customers.</p>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback">
+        <h2>Feedback</h2>
+        <form action="#">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" name="feedback" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Coffee Shop. All rights reserved.</p>
+    </footer>
+</body>
+</html>
