@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grading System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .btn {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #45a049;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🎓 Student Grading System</h2>
+        <button class="btn" onclick="runGradingSystem()">Check Grade</button>
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        function calculateGrade(marks, attendance) {
+            let bonusMarks = 0;
+            if (attendance > 90) {
+                bonusMarks = 5;
+                marks += 5;
+            }
+
+            let grade;
+            if (marks >= 90) {
+                grade = "A";
+            } else if (marks >= 80) {
+                grade = "B";
+            } else if (marks >= 70) {
+                grade = "C";
+            } else if (marks >= 60) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            let bonusMessage = bonusMarks > 0 ? ` (Bonus +5 Marks for Attendance > 90%)` : "";
+            return `Final Marks: ${marks}${bonusMessage}, Grade: ${grade}`;
+        }
+
+        function runGradingSystem() {
+            let marks = parseFloat(prompt("Enter student's marks (0-100):"));
+            let attendance = parseFloat(prompt("Enter student's attendance percentage (0-100):"));
+
+            if (isNaN(marks) || isNaN(attendance) || marks < 0 || marks > 100 || attendance < 0 || attendance > 100) {
+                document.getElementById("result").innerText = "❌ Please enter valid marks (0-100) and attendance (0-100).";
+                return;
+            }
+
+            let result = calculateGrade(marks, attendance);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

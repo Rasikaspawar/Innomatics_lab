@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Membership Plan</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #444;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.2);
+            margin-top: 10px;
+        }
+
+        .btn {
+            background: #27ae60;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #219150;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>💪 Choose Your Fitness Plan 🏋️‍♂️</h2>
+
+        <label for="trainer">Do you want a Personal Trainer?</label>
+        <input type="checkbox" id="trainer"><br><br>
+
+        <label for="diet">Do you want a Diet Plan?</label>
+        <input type="checkbox" id="diet"><br><br>
+
+        <button class="btn" onclick="getPlan()">Get Best Plan</button>
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        function choosePlan(wantsTrainer, wantsDietPlan) {
+            if (wantsDietPlan) {
+                return "🔥 VIP Plan: $80/month (Gym + Trainer + Diet Plan)";
+            } else if (wantsTrainer) {
+                return "💪 Premium Plan: $50/month (Gym + Personal Trainer)";
+            } else {
+                return "🏋️ Basic Plan: $20/month (Only Gym Access)";
+            }
+        }
+
+        function getPlan() {
+            let trainer = document.getElementById("trainer").checked;
+            let diet = document.getElementById("diet").checked;
+            let result = choosePlan(trainer, diet);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

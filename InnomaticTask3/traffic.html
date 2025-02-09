@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Traffic Light System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #FF9A8B, #FF6A88, #FF99AC);
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        select, button {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: #27ae60;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #219150;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #d35400;
+            font-weight: bold;
+        }
+
+        .traffic-light {
+            width: 60px;
+            height: 160px;
+            background: black;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px auto;
+        }
+
+        .light {
+            width: 40px;
+            height: 40px;
+            background: #444;
+            border-radius: 50%;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .green { background: green; }
+        .yellow { background: yellow; }
+        .red { background: red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🚦 Smart Traffic Light System</h2>
+        <label for="trafficDensity">Select Traffic Density:</label>
+        <select id="trafficDensity">
+            <option value="Heavy Traffic">Heavy Traffic</option>
+            <option value="Moderate Traffic">Moderate Traffic</option>
+            <option value="Light Traffic">Light Traffic</option>
+        </select>
+        <button class="btn" onclick="runTrafficLightControl()">Check Green Light Duration</button>
+        <p class="result" id="result"></p>
+
+        <div class="traffic-light">
+            <div class="light" id="redLight"></div>
+            <div class="light" id="yellowLight"></div>
+            <div class="light" id="greenLight"></div>
+        </div>
+    </div>
+
+    <script>
+        function trafficLightControl(density) {
+            let time;
+            let red = document.getElementById("redLight");
+            let yellow = document.getElementById("yellowLight");
+            let green = document.getElementById("greenLight");
+
+            // Reset all lights
+            red.classList.remove("red");
+            yellow.classList.remove("yellow");
+            green.classList.remove("green");
+
+            if (density === "Heavy Traffic") {
+                time = 60;
+                green.classList.add("green");
+            } else if (density === "Moderate Traffic") {
+                time = 40;
+                yellow.classList.add("yellow");
+            } else if (density === "Light Traffic") {
+                time = 20;
+                red.classList.add("red");
+            } else {
+                return "Invalid traffic density. Please select a valid option.";
+            }
+
+            return `Green light duration: ${time} seconds`;
+        }
+
+        function runTrafficLightControl() {
+            let density = document.getElementById("trafficDensity").value;
+            let result = trafficLightControl(density);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

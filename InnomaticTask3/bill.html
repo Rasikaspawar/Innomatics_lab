@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #00C9FF, #92FE9D);
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+        }
+
+        .btn {
+            background: #e74c3c;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #d35400;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>⚡ Electricity Bill Calculator 💡</h2>
+        <label for="units">Enter Units Consumed:</label>
+        <input type="number" id="units" placeholder="Enter units">
+
+        <label for="time">Enter Time (24-hour format):</label>
+        <input type="number" id="time" placeholder="e.g., 21 for 9 PM">
+
+        <button class="btn" onclick="calculateBill()">Calculate Bill</button>
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        function calculateElectricityBill(units, timeOfDay) {
+            let rate;
+
+            if (units < 100) {
+                rate = 5;
+            } else if (units <= 300) {
+                rate = 4;
+            } else {
+                rate = 3;
+            }
+
+            if (timeOfDay >= 20 || timeOfDay < 8) {
+                rate *= 1.1; // Increase rate by 10% during peak hours
+            }
+
+            let totalBill = units * rate;
+            return `Total Electricity Bill: $${totalBill.toFixed(2)}`;
+        }
+
+        function calculateBill() {
+            let units = parseFloat(document.getElementById("units").value);
+            let time = parseInt(document.getElementById("time").value);
+
+            if (isNaN(units) || units <= 0 || isNaN(time) || time < 0 || time > 24) {
+                document.getElementById("result").innerText = "⚠️ Please enter valid units and time!";
+                return;
+            }
+
+            let result = calculateElectricityBill(units, time);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

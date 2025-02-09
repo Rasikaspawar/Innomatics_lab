@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Pricing</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FF9A8B, #FF6A88, #FF99AC);
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: #27ae60;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #219150;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #d35400;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🎬 Movie Ticket Pricing System 🎟️</h2>
+        <label for="age">Enter Your Age:</label>
+        <input type="number" id="age" placeholder="Enter your age">
+        
+        <label for="showTime">Enter Show Time (24-hour format):</label>
+        <input type="number" id="showTime" placeholder="e.g. 14 for 2 PM">
+
+        <button class="btn" onclick="runTicketPricing()">Get Ticket Price</button>
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        function calculateTicketPrice(age, showTime) {
+            let basePrice = 12;
+
+            if (showTime < 17) {
+                basePrice *= 0.8; // 20% discount for matinee show
+            }
+
+            if (age > 60) {
+                basePrice *= 0.7; // 30% discount for seniors
+            } else if (age < 12) {
+                basePrice *= 0.6; // 40% discount for children
+            }
+
+            return `🎟️ Final Ticket Price: $${basePrice.toFixed(2)}`;
+        }
+
+        function runTicketPricing() {
+            let age = parseInt(document.getElementById("age").value);
+            let showTime = parseInt(document.getElementById("showTime").value);
+
+            if (isNaN(age) || isNaN(showTime) || age <= 0 || showTime < 0 || showTime > 23) {
+                document.getElementById("result").innerText = "⚠️ Please enter valid values!";
+                return;
+            }
+
+            let result = calculateTicketPrice(age, showTime);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>
