@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Pricing</title>
+</head>
+<body>
+    <h2>Movie Ticket Pricing System</h2>
+    <label for="age">Enter Your Age:</label>
+    <input type="number" id="age">
+    <label for="showTime">Enter Show Time (24-hour format):</label>
+    <input type="number" id="showTime">
+    <button onclick="runTicketPricing()">Get Ticket Price</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateTicketPrice(age, showTime) {
+            let basePrice = 12;
+
+            if (showTime < 17) {
+                basePrice *= 0.8; // 20% discount
+            }
+
+            if (age > 60) {
+                basePrice *= 0.7; // 30% discount
+            } else if (age < 12) {
+                basePrice *= 0.6; // 40% discount
+            }
+
+            return `Final Ticket Price: $${basePrice.toFixed(2)}`;
+        }
+
+        function runTicketPricing() {
+            let age = parseInt(document.getElementById("age").value);
+            let showTime = parseInt(document.getElementById("showTime").value);
+            let result = calculateTicketPrice(age, showTime);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

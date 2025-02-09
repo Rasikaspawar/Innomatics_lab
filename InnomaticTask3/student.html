@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grading System</title>
+</head>
+<body>
+    <h2>Student Grading System</h2>
+    <button onclick="runGradingSystem()">Check Grade</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateGrade(marks, attendance) {
+            if (attendance > 90) {
+                marks += 5;
+            }
+
+            let grade;
+            if (marks >= 90) {
+                grade = "A";
+            } else if (marks >= 80) {
+                grade = "B";
+            } else if (marks >= 70) {
+                grade = "C";
+            } else if (marks >= 60) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            return `Final Marks: ${marks}, Grade: ${grade}`;
+        }
+
+        function runGradingSystem() {
+            let marks = parseFloat(prompt("Enter student's marks:"));
+            let attendance = parseFloat(prompt("Enter student's attendance percentage:"));
+            let result = calculateGrade(marks, attendance);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

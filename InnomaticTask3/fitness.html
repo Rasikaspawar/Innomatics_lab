@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Membership Plan</title>
+</head>
+<body>
+    <h2>Choose Your Fitness Plan</h2>
+
+    <label for="trainer">Do you want a Personal Trainer?</label>
+    <input type="checkbox" id="trainer"><br><br>
+
+    <label for="diet">Do you want a Diet Plan?</label>
+    <input type="checkbox" id="diet"><br><br>
+
+    <button onclick="getPlan()">Get Best Plan</button>
+    <p id="result"></p>
+
+    <script>
+        function choosePlan(wantsTrainer, wantsDietPlan) {
+            if (wantsDietPlan) {
+                return "VIP Plan: $80/month (Gym + Trainer + Diet Plan)";
+            } else if (wantsTrainer) {
+                return "Premium Plan: $50/month (Gym + Personal Trainer)";
+            } else {
+                return "Basic Plan: $20/month (Only Gym Access)";
+            }
+        }
+
+        function getPlan() {
+            let trainer = document.getElementById("trainer").checked;
+            let diet = document.getElementById("diet").checked;
+            let result = choosePlan(trainer, diet);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

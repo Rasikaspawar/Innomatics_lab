@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Discount Calculator</title>
+</head>
+<body>
+    <h2>Online Shopping Discount & Free Shipping</h2>
+    <button onclick="runCalculator()">Calculate Final Amount</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateFinalAmount(orderAmount) {
+            let discount = 0;
+            let shipping = 0;
+
+            if (orderAmount > 1000) {
+                discount = 0.20 * orderAmount;
+            } else if (orderAmount >= 500) {
+                discount = 0.10 * orderAmount;
+            }
+
+            let discountedAmount = orderAmount - discount;
+
+            if (discountedAmount < 50) {
+                shipping = 10;
+            }
+
+            let finalAmount = discountedAmount + shipping;
+            
+            return `Final Payable Amount: RS{finalAmount.toFixed(2)} (Discount: RS{discount.toFixed(2)}, Shipping: Rs{shipping.toFixed(2)})`;
+        }
+
+        function runCalculator() {
+            let orderAmount = parseFloat(prompt("Enter your order amount:"));
+            let result = calculateFinalAmount(orderAmount);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

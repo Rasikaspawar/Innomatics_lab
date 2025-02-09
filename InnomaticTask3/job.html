@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Filter</title>
+</head>
+<body>
+    <h2>Job Application Eligibility Checker</h2>
+    <label for="age">Enter Age:</label>
+    <input type="number" id="age"><br><br>
+
+    <label for="experience">Enter Years of Experience:</label>
+    <input type="number" id="experience"><br><br>
+
+    <label for="qualification">Enter Qualification:</label>
+    <select id="qualification">
+        <option value="Bachelor's Degree">Bachelor's Degree</option>
+        <option value="Diploma">Diploma</option>
+        <option value="High School">High School</option>
+    </select><br><br>
+
+    <button onclick="checkEligibility()">Check Eligibility</button>
+    <p id="result"></p>
+
+    <script>
+        function isEligibleForJob(age, experience, qualification) {
+            if (age < 21 || age > 55) {
+                return "Not Eligible: Age must be between 21 and 55.";
+            }
+            if (experience < 2) {
+                return "Not Eligible: Minimum 2 years of experience required.";
+            }
+            if (qualification !== "Bachelor's Degree") {
+                return "Not Eligible: Minimum qualification required is a Bachelor's Degree.";
+            }
+
+            return "Eligible for the job!";
+        }
+
+        function checkEligibility() {
+            let age = parseInt(document.getElementById("age").value);
+            let experience = parseInt(document.getElementById("experience").value);
+            let qualification = document.getElementById("qualification").value;
+            let result = isEligibleForJob(age, experience, qualification);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

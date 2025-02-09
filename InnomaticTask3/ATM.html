@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Withdrawal</title>
+</head>
+<body>
+    <h2>ATM Withdrawal System</h2>
+    <button onclick="runATM()">Withdraw Money</button>
+
+    <script>
+        function atmWithdrawal(balance, amount, pin, enteredPin) {
+            if (enteredPin !== pin) return "Incorrect PIN";
+            if (amount > balance) return "Insufficient Funds";
+            if (amount % 100 !== 0) return "Enter amount in multiples of 100";
+            return `Withdrawal Successful. Remaining Balance: ${balance - amount}`;
+        }
+
+        function runATM() {
+            let balance = parseFloat(prompt("Enter account balance:"));
+            let amount = parseFloat(prompt("Enter withdrawal amount:"));
+            let pin = parseInt(prompt("Set your PIN:"));
+            let enteredPin = parseInt(prompt("Enter your PIN:"));
+
+            let result = atmWithdrawal(balance, amount, pin, enteredPin);
+            alert(result);
+        }
+    </script>
+</body>
+</html>

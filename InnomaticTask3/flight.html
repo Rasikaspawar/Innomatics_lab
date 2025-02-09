@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Fare Calculator</title>
+</head>
+<body>
+    <h2>Flight Fare Calculator</h2>
+
+    <label for="classType">Select Class:</label>
+    <select id="classType">
+        <option value="Economy">Economy</option>
+        <option value="Business">Business</option>
+        <option value="First">First</option>
+    </select><br><br>
+
+    <label for="luggage">Enter Luggage Weight (kg):</label>
+    <input type="number" id="luggage" placeholder="Enter weight"><br><br>
+
+    <label for="isStudent">Are you a Student?</label>
+    <input type="checkbox" id="isStudent"><br><br>
+
+    <label for="isSenior">Are you a Senior (above 60)?</label>
+    <input type="checkbox" id="isSenior"><br><br>
+
+    <button onclick="calculateFare()">Calculate Fare</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateFlightFare(classType, luggageWeight, isStudent, isSenior) {
+            let baseFare = 300;
+            let extraCharge = 0;
+            let discount = 0;
+
+            if (classType === "Business") {
+                extraCharge += 200;
+            } else if (classType === "First") {
+                extraCharge += 500;
+            }
+
+            if (luggageWeight > 20) {
+                extraCharge += Math.ceil((luggageWeight - 20) / 10) * 50;
+            }
+
+            let totalFare = baseFare + extraCharge;
+
+            if (isStudent) {
+                discount = totalFare * 0.15;
+            } else if (isSenior) {
+                discount = totalFare * 0.10;
+            }
+
+            let finalPrice = totalFare - discount;
+            return `Total Flight Fare: $${finalPrice.toFixed(2)}`;
+        }
+
+        function calculateFare() {
+            let classType = document.getElementById("classType").value;
+            let luggage = parseFloat(document.getElementById("luggage").value);
+            let isStudent = document.getElementById("isStudent").checked;
+            let isSenior = document.getElementById("isSenior").checked;
+
+            let result = calculateFlightFare(classType, luggage, isStudent, isSenior);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>
