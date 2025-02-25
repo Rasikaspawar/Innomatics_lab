@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Data - IT Training Center</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+        }
+        .top-navbar {
+            background: #d32f2f;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        .top-navbar p {
+            margin: 0;
+        }
+        .main-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+        .nav-left nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-left nav ul li {
+            display: inline-block;
+        }
+        .nav-left nav ul li a, .course-select, .pay-now {
+            text-decoration: none;
+            color: black;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .course-select {
+            background-color: white;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .pay-now {
+            background: #ff9800;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .pay-now:hover, .nav-left nav ul li a:hover {
+            background: #d32f2f;
+            color: white;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: url('hero-bg.jpg') no-repeat center center/cover;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 18px;
+        }
+        .hero button {
+            background: #ff9800;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .hero button:hover {
+            background: #d32f2f;
+        }
+        .courses {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .course {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        .course:hover {
+            transform: translateY(-5px);
+        }
+        .course h3 {
+            color: #d32f2f;
+        }
+        .testimonial {
+            text-align: center;
+            margin: 40px auto;
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-navbar">
+        <p><i class="fas fa-phone-alt"></i> Enquire Now: Hyd: 9951666670 | Pune: 9951666671 | Bengaluru: 9951666672</p>
+    </div>
+    
+    <header class="main-navbar">
+        <div class="logo">INNOMATIC RESEARCH LAB</div>
+        <div class="nav-left">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#scholars">IT Scholars</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><button class="pay-now">Pay Now</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="home" class="hero">
+        <h1>Welcome to IT Training Center</h1>
+        <p>Enhance your IT skills with our expert-led courses.</p>
+        <button>Get Started</button>
+    </section>
+    
+    <section id="courses" class="courses">
+        <h2>Our Courses</h2>
+        <div class="course-grid">
+            <div class="course">
+                <h3>Data Science</h3>
+                <p>Master Python, Machine Learning, and AI.</p>
+            </div>
+            <div class="course">
+                <h3>Full Stack Development</h3>
+                <p>Learn Frontend and Backend Development.</p>
+            </div>
+            <div class="course">
+                <h3>AWS</h3>
+                <p>Get certified in Amazon Web Services.</p>
+            </div>
+            <div class="course">
+                <h3>Digital Marketing</h3>
+                <p>Learn SEO, SEM, and Social Media Marketing.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial">
+            <p>"This course changed my career!" - John Doe</p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>Contact us: info@ittraining.com</p>
+        <p>Follow us on <a href="#">Social Media</a></p>
+    </footer>
+</body>
+</html>
