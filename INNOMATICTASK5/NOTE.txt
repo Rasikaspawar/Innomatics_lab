@@ -1,0 +1,2 @@
+I AM DELTED THE NODE MODEULES HERE IF U WANT TO RUN THIS ADD NODE MODULES USING
+-npm install @hello-pangea/dnd framer-motion
